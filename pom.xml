@@ -16,6 +16,7 @@
     <description>ChatAppMicroservices</description>
     <modules>
         <module>User</module>
+        <module>ChatApp</module>
     </modules>
     <properties>
         <java.version>17</java.version>

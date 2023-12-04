@@ -1,10 +1,10 @@
 server:
-  port: 8090
+  port: 8080
 
 spring:
   application:
     name:
-      User
+      ChatApp
   datasource:
     driver-class-name: org.postgresql.Driver
     username: root
