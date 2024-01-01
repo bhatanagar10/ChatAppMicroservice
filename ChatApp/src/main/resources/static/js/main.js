@@ -25,7 +25,7 @@ function connect(event) {
         usernamePage.classList.add('hidden');
         chatPage.classList.remove('hidden');
 
-        var socket = new SockJS('/ws');
+        var socket = new SockJS('/chat/ws');
         stompClient = Stomp.over(socket);
 
         stompClient.connect({}, onConnected, onError);
@@ -106,7 +106,7 @@ function onMessageReceived(payload) {
     if(message.type === 'JOIN') {
         // calling the api for getting chat history
         $.ajax({
-            url:"http://localhost:8080/chat.history",
+            url:"http://localhost:8030/chat/chat.history",
             dataType : 'json',
             async : false,
             success : function(messages) {

@@ -4,7 +4,7 @@ server:
 spring:
   application:
     name:
-      ChatApp
+      chatapp
   datasource:
     driver-class-name: org.postgresql.Driver
     username: root
@@ -15,3 +15,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8010/eureka
