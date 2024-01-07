@@ -24,6 +24,7 @@ services:
     ports:
       - "15672:15672"
       - "61673:61673"
+      - "5672:5672"
   zipkin-server:
     image: openzipkin/zipkin:latest
     ports:
