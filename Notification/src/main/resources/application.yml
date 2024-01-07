@@ -1,0 +1,39 @@
+server:
+  port: 8040
+#
+#spring:
+#  application:
+#    name: notification
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    username: root
+#    password: root
+#    url: jdbc:postgresql://localhost:5432/chatapp_db
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    hibernate:
+#      ddl-auto: create-drop
+#    show-sql: true
+#  rabbitmq: # if dont provide these, then spring boot auto config will use default configurations
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8010/eureka
+
+#management:
+#  tracing:
+#    sampling:
+#      probability: 1.0
+
+rabbitmq:
+  exchanges:
+    internal: internal.exchange
+  queue:
+    notification: notification.queue
+  routing-keys:
+    internal-notification: internal.notification.routing-key
