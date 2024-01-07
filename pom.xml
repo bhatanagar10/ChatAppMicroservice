@@ -19,6 +19,10 @@
         <module>ChatApp</module>
         <module>Eureka-Discovery-Server</module>
         <module>Api-Gateway</module>
+        <module>rabbitmq_amqp</module>
+        <module>rabbitmq_amqp</module>
+        <module>RabbitMQ_amqp</module>
+        <module>Notification</module>
     </modules>
     <properties>
         <java.version>17</java.version>
