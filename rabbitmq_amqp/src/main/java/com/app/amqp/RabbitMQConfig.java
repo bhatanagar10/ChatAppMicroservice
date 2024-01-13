@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@SpringBootApplication
 @AllArgsConstructor
 public class RabbitMQConfig {
 
@@ -37,9 +36,5 @@ public class RabbitMQConfig {
         factory.setMessageConverter(jacksonConverter());
         factory.setConnectionFactory(connectionFactory);
         return factory;
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(RabbitMQConfig.class,args);
     }
 }
