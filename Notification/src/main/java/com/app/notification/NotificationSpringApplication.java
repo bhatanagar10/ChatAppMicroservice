@@ -21,9 +21,6 @@ public class NotificationSpringApplication implements CommandLineRunner {
     @Autowired
     private NotificationProducer notificationProducer;
 
-    @Autowired
-    private NotificationConsumer notificationConsumer;
-
     @Override
     public void run(String... args) throws Exception {
         notificationProducer.produce();

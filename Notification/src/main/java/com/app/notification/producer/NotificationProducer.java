@@ -1,7 +1,6 @@
 package com.app.notification.producer;
 
 import com.app.amqp.RabbitMQProducer;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
