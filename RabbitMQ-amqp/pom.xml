@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.app</groupId>
-        <artifactId>ChatAppMicroservices</artifactId>
+        <artifactId>chat-app-microservices</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>RabbitMQ-amqp</artifactId>
+    <artifactId>rabbitmq-amqp</artifactId>
     <packaging>jar</packaging>
 
     <properties>
