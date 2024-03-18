@@ -1,0 +1,21 @@
+server:
+  port: 8010
+
+spring:
+  application:
+    name: Discovery-Server
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8010/eureka
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://zipkin-server:9411/api/v2/spans

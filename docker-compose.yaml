@@ -11,6 +11,8 @@ services:
       POSTGRES_DB: chatapp_db
     ports:
       - "5432:5432"
+    networks:
+      - postgres
   pgadmin:
     image: dpage/pgadmin4
     restart: always
@@ -19,13 +21,36 @@ services:
       PGADMIN_DEFAULT_PASSWORD: root
     ports:
       - "5050:80"
+    networks:
+      - postgres
   rabbitmq:
     image: rabbitmq-plugin
     ports:
       - "15672:15672"
       - "61673:61673"
       - "5672:5672"
+    networks:
+      - spring
   zipkin-server:
     image: openzipkin/zipkin:latest
     ports:
       - 9411:9411
+    networks:
+      - spring
+  eureka-server:
+    image: bhatanagar10/eureka-discovery-server
+    ports:
+      - "8010:8010"
+    depends_on:
+      - zipkin-server
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: http://zipkin-server:9411/api/v2/spans
+    networks:
+      - spring
+
+networks:
+  postgres:
+    driver: bridge
+  spring:
+    driver: bridge
