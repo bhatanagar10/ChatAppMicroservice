@@ -44,11 +44,20 @@ services:
     depends_on:
       - zipkin-server
     environment:
-      SPRING_PROFILES_ACTIVE: docker
-      MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: http://zipkin-server:9411/api/v2/spans
+      - SPRING_PROFILES_ACTIVE=docker
     networks:
       - spring
-
+  api-gateway:
+    image: bhatanagar10/api-gateway
+    ports:
+      - "8030:8030"
+    depends_on:
+      - eureka-server
+      - zipkin-server
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
 networks:
   postgres:
     driver: bridge
