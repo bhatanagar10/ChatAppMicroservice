@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name:
+      chatapp
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: root
+    password: root
+    url: jdbc:postgresql://postgres:5432/chatapp_db
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  rabbitmq:
+    host: rabbitmq
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8010/eureka
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://zipkin-server:9411/api/v2/spans
