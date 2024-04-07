@@ -27,7 +27,7 @@ services:
     image: rabbitmq-plugin
     ports:
       - "15672:15672"
-      - "61673:61673"
+      - "61613:61613"
       - "5672:5672"
     networks:
       - spring
@@ -38,7 +38,7 @@ services:
     networks:
       - spring
   eureka-server:
-    image: bhatanagar10/eureka-discovery-server
+    image: bhatanagar10/eureka-discovery-server:latest
     ports:
       - "8010:8010"
     depends_on:
@@ -48,7 +48,7 @@ services:
     networks:
       - spring
   api-gateway:
-    image: bhatanagar10/api-gateway
+    image: bhatanagar10/api-gateway:latest
     ports:
       - "8030:8030"
     depends_on:
@@ -58,6 +58,25 @@ services:
       - SPRING_PROFILES_ACTIVE=docker
     networks:
       - spring
+  chatapp:
+    image: bhatanagar10/chatapp:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - eureka-server
+      - zipkin-server
+      - rabbitmq
+      - postgres
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    volumes:
+      - type: bind
+        source: D:/Java/ChatAppMicroservices/ChatApp/src/main/resources
+        target: /chatapp
+
 networks:
   postgres:
     driver: bridge
