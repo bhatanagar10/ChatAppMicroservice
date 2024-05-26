@@ -1,5 +1,7 @@
 server:
   port: 8080
+  tomcat:
+    processor-cache:
 
 spring:
   application:
@@ -24,3 +26,7 @@ management:
   tracing:
     sampling:
       probability: 1.0
+
+stomp:
+  relay:
+    host: localhost
