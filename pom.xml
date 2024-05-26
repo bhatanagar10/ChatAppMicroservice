@@ -21,6 +21,7 @@
         <module>Api-Gateway</module>
         <module>RabbitMQ-amqp</module>
         <module>Notification</module>
+        <module>Auth_Service</module>
     </modules>
     <properties>
         <java.version>17</java.version>
